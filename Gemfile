@@ -5,7 +5,7 @@ ruby '2.5.1'
 
 gem 'rails', '~> 5.2.4', '>= 5.2.4.3'
 
-gem 'sqlite3'
+# gem 'sqlite3'
 
 gem 'puma', '~> 3.11'
 
@@ -31,6 +31,7 @@ gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'sqlite3'
 end
 
 group :development do
