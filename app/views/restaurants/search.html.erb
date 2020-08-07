@@ -1,0 +1,70 @@
+<h1>検索</h1>
+
+<%= form_with url: restaurants_index_path, method: :get, local: true do |f| %>
+  <%= f.text_field :freeword, placeholder: "例）　ラーメン　居酒屋" %>
+  <div class="search">
+    <p>検索範囲を選択してください。<%= f.select(:range, options_for_select([["300m","1"], ["500m", "2"], ["1000m","3"]], :selected => "1"), class: "select") %></p>
+  </div>
+  <%= f.submit '検索する'%>
+<% end %>
+
+
+<script>
+
+  if (navigator.geolocation) {
+    if(confirm('このアプリは位置情報をつかいます。よろしいですか？')) {
+
+      navigator.geolocation.getCurrentPosition(
+        function(position) {
+
+          let lat = position.coords.latitude;
+          let lng = position.coords.longitude;
+
+          // 位置情報取得したタイミングで通知
+          alert(lat + "," + lng);
+
+          $(".search").append(
+            `<input type="hidden" id="id" name="lat" value="${lat}">
+            <input type="hidden" id="id" name="lng" value="${lng}">`
+          );
+
+          $(".select").change(function() {
+            let num = $(this).val();
+            let radius = 500;
+            if (num == "1") {
+              radius = 300;
+            } else if (num == "2") {
+              radius = 500;
+            } else if (num == "3") {
+              radius = 1000;
+            }
+          });
+        },
+        function(error) {
+          let errorMessage = [
+            "原因不明のエラーが発生しました。",
+            "位置情報の取得が許可されませんでした。",
+            "デバイスの位置が判定できませんでした。",
+            "タイムアウトして位置情報を取得できませんでした。"
+           ] ;
+
+          alert( errorMessage[error.code] );
+        },
+  
+        {
+          enableHighAccuracy: false,
+          // timeout: 20000,
+          timeout: 1000,
+          maximumAge: 2000
+        }
+      );
+    } else {
+      alert("位置情報を利用しなければ本アプリは利用できません");
+      window.location.href="/";
+    }
+  } else {
+    let errorMessage = "お使いの端末は、GeoLacation APIに対応していません。";
+    alert(errorMessage);
+  }
+
+</script>
