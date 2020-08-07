@@ -53,4 +53,8 @@ group :test do
   gem 'chromedriver-helper'
 end
 
+group :production do
+  gem 'pg', '>= 0.18', '< 2.0'
+end
+
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

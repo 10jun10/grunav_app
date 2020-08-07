@@ -124,6 +124,7 @@ GEM
     parallel (1.19.2)
     parser (2.7.1.4)
       ast (~> 2.4.1)
+    pg (1.2.3)
     popper_js (1.16.0)
     public_suffix (4.0.5)
     puma (3.12.6)
@@ -238,6 +239,7 @@ DEPENDENCIES
   jquery-rails
   kaminari (~> 0.17.0)
   listen (>= 3.0.5, < 3.2)
+  pg (>= 0.18, < 2.0)
   puma (~> 3.11)
   rails (~> 5.2.4, >= 5.2.4.3)
   rubocop
