@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+
+      <% @restaurants.each do |rest| %>
+        <h1><%= rest[:name] %></h1>
+        <p>電話番号：<%= rest[:tel] %></p>
+        <p>営業時間：<%= rest[:opentime] %></p>
+        <p>休業日：<%= rest[:holiday] %></p>
+        <p>住所：<%= rest[:address] %></p>
+        <image src=<%= rest[:image1] %> >
+        <image src=<%= rest[:image2] %> >
+      <% end %>
+
+  </div>
+</div>
