@@ -63,11 +63,6 @@ class RestaurantsController < ApplicationController
                end
       render :search
     end
-
-    puts "=======テスト========"
-    puts restaurants
-    puts "=======テスト終了========"
-
     @restaurants = Kaminari.paginate_array(restaurants).page(params[:page]).per(10)
   end
 
@@ -100,6 +95,9 @@ class RestaurantsController < ApplicationController
                             holiday: rest['holiday'],
                             pr_short: rest['pr']['pr_short'],
                             pr_long: rest['pr']['pr_long'],
+                            budget: rest['budget'],
+                            party: rest['party'],
+                            lunch: rest['lunch'],
                             tel: rest['tel']
                           })
       end
@@ -119,14 +117,7 @@ class RestaurantsController < ApplicationController
                else
                  'エラーが発生しました。'
                end
-      render :search
+      render :index
     end
-
-    puts "=======テスト========"
-    puts @restaurants
-    puts "=======テスト終了========"
-
-
   end
-  
 end

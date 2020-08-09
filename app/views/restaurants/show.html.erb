@@ -48,6 +48,25 @@
     </tr>
 
     <tr>
+      <th>平均予算<br>ランチタイム平均予算<br>宴会・パーティ平均予算</th>
+      <% if rest[:budget] == "" %>
+        <td>平均予算の情報はありません<br>
+      <% else %>
+        <td>平均予算：<%= rest[:budget] %>円<br>
+      <% end %>
+      <% if rest[:lunch] == "" %>
+        ランチタイム平均予算の情報はありません<br>
+      <% else %>
+        ランチタイム平均予算：<%= rest[:lunch] %>円<br>
+      <% end %>
+      <% if rest[:party] == "" %>
+        宴会・パーティ平均予算の情報はありません</td>
+      <% else %>
+        宴会・パーティ平均予算：<%= rest[:party] %>円</td>
+      <% end %>
+    </tr>
+
+    <tr>
       <th>詳細</th>
       <% if rest[:url] == "" && rest[:url_mobile] == "" %>
         <td>情報なし</td>
@@ -66,7 +85,7 @@
     <% if rest[:pr_long] == "" && rest[:pr_short] == "" %>
       お知らせはありません
     <% else %>
-      <h4><%= rest[:pr_short] %></h4>
+      <h4 class="mb-4"><%= rest[:pr_short] %></h4>
       <%= rest[:pr_long] %>
     <% end %>
   </div>
