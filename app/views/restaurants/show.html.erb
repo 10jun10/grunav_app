@@ -9,7 +9,7 @@
       <%= rest[:name_kana] %>
     </div>
   </div>
-  
+
   <table id="show">
     <tr>
       <th>電話番号</th>
@@ -56,7 +56,14 @@
       <% end %>
     </tr>
   </table>
+  <div class="rest_image">
+    <image src="<%= rest[:image1] %>" class="image" >
+    <image src="<%= rest[:image2] %>" class="image" >
+  </div>
 
-  <image src="<%= rest[:image1] %>" class="image" >
-  <image src="<%= rest[:image2] %>" class="image" >
+  <div class="pr">
+    <p>【お店からのお知らせ】</p>
+    <h4><%= rest[:pr_short] %></h4>
+    <%= rest[:pr_long] %>
+  </div>
 <% end %>

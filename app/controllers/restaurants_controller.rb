@@ -18,9 +18,12 @@ class RestaurantsController < ApplicationController
       "card": params[:card],
       "e_money": params[:e_money],
       "buffet": params[:buffet],
+      "lunch_buffet": params[:lunch_buffet],
+      "bottomless_cup": params[:bottomless_cup],
       "deliverly": params[:deliverly],
       "until_morning": params[:until_morning],
       "lunch_desert": params[:lunch_desert],
+      "midnight": params[:midnight],
       "range": range
     }
     query = query_items.to_query
@@ -95,6 +98,8 @@ class RestaurantsController < ApplicationController
                             image2: rest['image_url']['shop_image2'],
                             opentime: rest['opentime'],
                             holiday: rest['holiday'],
+                            pr_short: rest['pr']['pr_short'],
+                            pr_long: rest['pr']['pr_long'],
                             tel: rest['tel']
                           })
       end

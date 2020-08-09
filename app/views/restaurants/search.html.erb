@@ -11,7 +11,7 @@
   </div>
 
   絞り込み
-  <div class="row" id="narrow" >
+  <div class="row pt-2" id="narrow" >
     <div class="col-md-4">
       <%= f.check_box :lunch, id: "lunch" %>
       <%= f.label :ランチ営業あり, for: "lunch" %>
@@ -23,10 +23,38 @@
     </div>
 
     <div class="col-md-4">
+      <%= f.check_box :lunch_buffet, id: "lunch_buffet" %>
+      <%= f.label :ランチビュッフェあり, for: "lunch_buffet" %>
+    </div>
+
+    <div class="col-md-4">
+      <%= f.check_box :buffet, id: "buffet" %>
+      <%= f.label :食べ放題あり, for: "buffet" %>
+    </div>
+    
+    <div class="col-md-4">
+      <%= f.check_box :bottomless_cup, id: "bottomless_cup" %>
+      <%= f.label :飲み放題あり, for: "bottomless_cup" %>
+    </div>
+
+    <div class="col-md-4">
+      <%= f.check_box :midnight, id: "midnight" %>
+      <%= f.label :深夜営業あり, for: "midnight" %>
+    </div>
+
+    <div class="col-md-4">
+      <%= f.check_box :until_morning, id: "until_morning" %>
+      <%= f.label :朝まで営業, for: "until_morning" %>
+    </div>
+
+    <div class="col-md-4">
+    </div>
+
+    <div class="col-md-4">
       <%= f.check_box :no_smoking, id: "no_smoking" %>
       <%= f.label :禁煙席あり, for: "no_smoking" %>
     </div>
-
+  
     <div class="col-md-4">
       <%= f.check_box :card, id: "card" %>
       <%= f.label :カード決済あり, for: "card" %>
@@ -35,6 +63,9 @@
     <div class="col-md-4">
       <%= f.check_box :e_money, id: "e_money" %>
       <%= f.label :電子マネー利用可, for: "e_money" %>
+    </div>
+
+    <div class="col-md-4">
     </div>
 
     <div class="col-md-4">
@@ -48,16 +79,10 @@
     </div>
 
     <div class="col-md-4">
-      <%= f.check_box :buffet, id: "buffet" %>
-      <%= f.label :食べ放題あり, for: "buffet" %>
     </div>
 
-    <div class="col-md-4">
-      <%= f.check_box :until_morning, id: "until_morning" %>
-      <%= f.label :朝まで営業, for: "until_morning" %>
-    </div>
     <div class="search ml-4">
-      <p>検索範囲を選択してください。<%= f.select(:range, options_for_select([["300m","1"], ["500m", "2"], ["1000m","3"]], :selected => "2"), class: "select") %></p>
+      <p>検索範囲を選択してください。（現在地からの半径で検索します）<%= f.select(:range, options_for_select([["300m","1"], ["500m", "2"], ["1000m","3"]], :selected => "2"), class: "select") %></p>
     </div>
   </div>
   <div class="form-group text-right">

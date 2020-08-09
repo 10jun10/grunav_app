@@ -57,12 +57,24 @@
   }
 }
 
-.image {
-  width: 50%;
+.rest_image {
+  background-color: #f6f6f9;
+  padding: 10px;
+  .image {
+    width: 30%;
+    border-radius: 0.5em;
+  }
+}
+
+.pr {
+  background-color: #eee;
+  border-bottom-right-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+  padding: 10px;
 }
 
 #narrow {
   border: 1px solid #c4d9ef;
-  border-radius: 0.5em;
   background-color: white;
+  border-radius: 0.5em;
 }
