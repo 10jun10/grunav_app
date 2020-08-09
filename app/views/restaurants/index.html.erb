@@ -1,27 +1,27 @@
 <div class="row">
-    <h1>検索結果一覧</h1>
-    <table id="index" border="1" cellspacing="0" cellpadding="5">
-      <tr>
-        <th>店名</th>
-        <th>画像</th>
-        <th>現在地からの徒歩でかかる時間</th>
-      </tr>
+  <h1>検索結果一覧</h1>
+  <table id="index" border="1" cellspacing="0" cellpadding="5">
+    <tr>
+      <th>店名</th>
+      <th>画像</th>
+      <th>現在地からの徒歩でかかる時間</th>
+    </tr>
 
-      <% @restaurants.each do |res| %>
-        <tr>
-          <td>
-            <%= link_to res[:name], res[:id] %>
-          </td>
-          <td>
-            <% if res[:image] == "" %>
-                画像はありません
-            <% else %>
-              <image src="<%= res[:image] %>">
-            <% end %>
-          </td>
-          <td><%= res[:access] %>分</td>
-        </tr>
-      <% end %>
-    </table>
-    <%= paginate @restaurants %>
+    <% @restaurants.each do |res| %>
+      <tr>
+        <td>
+          <%= link_to res[:name], res[:id] %>
+        </td>
+        <td>
+          <% if res[:image] == "" %>
+              画像はありません
+          <% else %>
+            <image src="<%= res[:image] %>">
+          <% end %>
+        </td>
+        <td><%= res[:access] %>分</td>
+      </tr>
+    <% end %>
+  </table>
+  <p class="text-right"><%= paginate @restaurants %></p>
 </div>

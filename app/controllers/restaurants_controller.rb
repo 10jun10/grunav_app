@@ -13,6 +13,14 @@ class RestaurantsController < ApplicationController
       "latitude": lat,
       "longitude": lng,
       "hit_per_page": 100,
+      "lunch": params[:lunch],
+      "no_smoking": params[:no_smoking],
+      "card": params[:card],
+      "e_money": params[:e_money],
+      "buffet": params[:buffet],
+      "deliverly": params[:deliverly],
+      "until_morning": params[:until_morning],
+      "lunch_desert": params[:lunch_desert],
       "range": range
     }
     query = query_items.to_query
@@ -53,6 +61,10 @@ class RestaurantsController < ApplicationController
       render :search
     end
 
+    puts "=======テスト========"
+    puts restaurants
+    puts "=======テスト終了========"
+
     @restaurants = Kaminari.paginate_array(restaurants).page(params[:page]).per(10)
   end
 
@@ -74,6 +86,7 @@ class RestaurantsController < ApplicationController
       hash['rest'].each do |rest|
         @restaurants.push({
                             name: rest['name'],
+                            name_kana: rest['name_kana'],
                             category: rest['category'],
                             url: rest['url'],
                             url_mobile: rest['url_mobile'],
@@ -103,6 +116,12 @@ class RestaurantsController < ApplicationController
                end
       render :search
     end
+
+    puts "=======テスト========"
+    puts @restaurants
+    puts "=======テスト終了========"
+
+
   end
   
 end
