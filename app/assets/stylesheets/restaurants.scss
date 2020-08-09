@@ -1,3 +1,25 @@
 // Place all the styles related to the Restaurants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+table {
+  border-collapse:separate;
+  border-spacing: 5px;
+  width: 100%;
+
+  th, td {
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  th {
+    background-color: #c79852;
+    color: white;
+    border:solid 1px #927141;
+  }
+
+  td {
+    background-color: #e4d4bc;
+    border:solid 1px #af9d85;
+  }
+}

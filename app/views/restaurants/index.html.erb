@@ -1,35 +1,31 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 offset-md-2">
-      <h1>検索結果一覧</h1>
-    </div>
-    <div class="col-md-8 offset-md-2">
-      <table border="1" width="500" cellspacing="0" cellpadding="5" bordercolor="#333333">
-        <tr>
-          <th bgcolor="#EE0000"><font color="#FFFFFF">店名</font></th>
-          <th bgcolor="#EE0000" width="150"><font color="#FFFFFF">画像</font></th>
-          <th bgcolor="#EE0000" width="200"><font color="#FFFFFF">現在地からの徒歩でかかる時間</font></th>
-        </tr>
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <h1>検索結果一覧</h1>
+  </div>
+  <div class="col-md-8 offset-md-2">
+    <table border="1" width="500" cellspacing="0" cellpadding="5" bordercolor="#333333">
+      <tr>
+        <th bgcolor="#EE0000"><font color="#FFFFFF">店名</font></th>
+        <th bgcolor="#EE0000" width="150"><font color="#FFFFFF">画像</font></th>
+        <th bgcolor="#EE0000" width="200"><font color="#FFFFFF">現在地からの徒歩でかかる時間</font></th>
+      </tr>
 
-        <% @restaurants.each do |res| %>
-          <tr>
-            <td bgcolor="#FFFFFF" valign="top" width="150">
-              <%= link_to res[:name], res[:id] %>
-            </td>
-            <td bgcolor="#FFFFFF" valign="top" width="150">
-              <% if res[:image] == "" %>
-                  <p class="text-center">画像はありません</p>
-              <% else %>
-                <image src="<%= res[:image] %>">
-              <% end %>
-            </td>
-            <td bgcolor="#FFFFFF" valign="top" width="200"><%= res[:access] %></td>
-          </tr>
-        <% end %>
-      </table>
-      <div class="text-center">
-        <%= paginate @restaurants %>
-      </div>
-    </div>
+      <% @restaurants.each do |res| %>
+        <tr>
+          <td bgcolor="#FFFFFF" valign="top" width="150">
+            <%= link_to res[:name], res[:id] %>
+          </td>
+          <td bgcolor="#FFFFFF" valign="top" width="150">
+            <% if res[:image] == "" %>
+                <p class="text-center">画像はありません</p>
+            <% else %>
+              <image src="<%= res[:image] %>">
+            <% end %>
+          </td>
+          <td bgcolor="#FFFFFF" valign="top" width="200"><%= res[:access] %>分</td>
+        </tr>
+      <% end %>
+    </table>
+    <%= paginate @restaurants %>
   </div>
 </div>

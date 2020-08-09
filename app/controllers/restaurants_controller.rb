@@ -1,20 +1,24 @@
 class RestaurantsController < ApplicationController
+  require 'open-uri'
+  require 'net/http'
+  require 'json'
+
   def index
     lat = params[:lat]
     lng = params[:lng]
     range = params[:range]
 
-    require 'uri'
-    require 'net/http'
-    require 'json'
+    query_items = {
+      "keyid": ENV['GNAVI_API_KEY'],
+      "latitude": lat,
+      "longitude": lng,
+      "hit_per_page": 100,
+      "range": range
+    }
+    query = query_items.to_query
 
-    uri = 'https://api.gnavi.co.jp/RestSearchAPI/v3/'
-    keyid = ENV['GNAVI_API_KEY']
+    url = 'https://api.gnavi.co.jp/RestSearchAPI/v3/?' << query
 
-    url = uri << '?keyid=' << keyid << '&hit_per_page=100' << '&latitude=' << lat << '&longitude=' << lng << '&range=' << range
-
-    url = url << '&freeword=' << params[:freeword] if params[:freeword]
-    
     url = URI.encode url
     re_url = URI.parse(url)
     json = Net::HTTP.get(re_url)
@@ -31,7 +35,6 @@ class RestaurantsController < ApplicationController
                          })
       end
     elsif hash.key?('error')
-
       @error = if hash['error'].first['code'] == 400
                  '不正なパラメーターが指定されました。'
                elsif hash['error'].first['code'] == 401
@@ -47,6 +50,7 @@ class RestaurantsController < ApplicationController
                else
                  'エラーが発生しました。'
                end
+      render :search
     end
 
     @restaurants = Kaminari.paginate_array(restaurants).page(params[:page]).per(10)
@@ -55,11 +59,6 @@ class RestaurantsController < ApplicationController
   def search; end
 
   def show
-
-    require 'open-uri'
-    require 'net/http'
-    require 'json'
-
     uri = 'https://api.gnavi.co.jp/RestSearchAPI/v3/'
     access_key = ENV['GNAVI_API_KEY']
     id = params[:id]
@@ -75,6 +74,9 @@ class RestaurantsController < ApplicationController
       hash['rest'].each do |rest|
         @restaurants.push({
                             name: rest['name'],
+                            category: rest['category'],
+                            url: rest['url'],
+                            url_mobile: rest['url_mobile'],
                             address: rest['address'],
                             image1: rest['image_url']['shop_image1'],
                             image2: rest['image_url']['shop_image2'],
@@ -99,6 +101,7 @@ class RestaurantsController < ApplicationController
                else
                  'エラーが発生しました。'
                end
+      render :search
     end
   end
   

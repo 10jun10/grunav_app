@@ -1,15 +1,33 @@
-<div class="container">
-  <div class="row">
-
-      <% @restaurants.each do |rest| %>
-        <h1><%= rest[:name] %></h1>
-        <p>電話番号：<%= rest[:tel] %></p>
-        <p>営業時間：<%= rest[:opentime] %></p>
-        <p>休業日：<%= rest[:holiday] %></p>
-        <p>住所：<%= rest[:address] %></p>
-        <image src=<%= rest[:image1] %> >
-        <image src=<%= rest[:image2] %> >
-      <% end %>
-
+<% @restaurants.each do |rest| %>
+  
+  <p>カテゴリー：<%= rest[:category] %></p>
+  <div class="text-left">
+    <h1><%= rest[:name] %></h1>
   </div>
-</div>
+
+  <table>
+  <tr>
+    <th>電話番号</th>
+    <td><%= rest[:tel] %></td>
+  </tr>
+  <tr>
+    <th>営業時間</th>
+    <td><%= rest[:opentime] %></td>
+  </tr>
+  <tr>
+    <th>休業日</th>
+    <td><%= rest[:holiday] %></td>
+  </tr>
+  <tr>
+    <th>住所</th>
+    <td><%= rest[:address] %></td>
+  </tr>
+  <tr>
+    <th>詳細</th>
+    <td><%= link_to "PCの方はこちら", "#{rest[:url]}" %><br><%= link_to "スマホの方はこちら", "#{rest[:url_mobile]}" %></td>
+  </tr>
+</table>
+
+  <image src="<%= rest[:image1] %>" >
+  <image src="<%= rest[:image2] %>" >
+<% end %>
