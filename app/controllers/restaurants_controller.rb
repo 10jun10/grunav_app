@@ -28,6 +28,10 @@ class RestaurantsController < ApplicationController
     }
     query = query_items.to_query
 
+    puts "======================"
+    puts query_items[:longitude]
+    puts "======================"
+
     url = 'https://api.gnavi.co.jp/RestSearchAPI/v3/?' << query
 
     url = URI.encode url
