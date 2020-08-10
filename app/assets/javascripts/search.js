@@ -5,9 +5,6 @@ if (navigator.geolocation) {
       let lat = position.coords.latitude;
       let lng = position.coords.longitude;
 
-      // 位置情報取得タイミング
-      // alert("現在位置、\n[" + lat + "," + lng + "]\n");
-
       $(".search").append(
         `<input type="hidden" id="id" name="lat" value="${lat}">
         <input type="hidden" id="id" name="lng" value="${lng}">`

@@ -64,7 +64,6 @@ class RestaurantsController < ApplicationController
       render :search
     end
     @restaurants = Kaminari.paginate_array(restaurants).page(params[:page]).per(10)
-
   end
 
   def search; end
@@ -90,6 +89,8 @@ class RestaurantsController < ApplicationController
                             url: rest['url'],
                             url_mobile: rest['url_mobile'],
                             address: rest['address'],
+                            latitude: rest['latitude'],
+                            longitude: rest['longitude'],
                             image1: rest['image_url']['shop_image1'],
                             image2: rest['image_url']['shop_image2'],
                             opentime: rest['opentime'],
@@ -120,5 +121,11 @@ class RestaurantsController < ApplicationController
                end
       render :index
     end
+
+    puts ''
+
+    gon.latitude = @restaurants.first[:latitude]
+    gon.longitude = @restaurants.first[:longitude]
+    gon.address = @restaurants.first[:address]
   end
 end

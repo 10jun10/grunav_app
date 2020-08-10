@@ -55,6 +55,12 @@
   padding: 10px 0;
 }
 
+#map {
+  height: 400px;
+  margin: 20px;
+  border: 1px solid;
+}
+
 .rest_image {
   background-color: #f6f6f9;
   padding: 10px;

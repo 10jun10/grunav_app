@@ -24,6 +24,8 @@
       <% end %>
     </table>
     <div class="mt-2">
-      <%= paginate @restaurants, theme: 'twitter-bootstrap-4' %>
+      <%= paginate @restaurants, theme: 'twitter-bootstrap-4',
+      pagination_class: "pagination-sm",
+      nav_class: "d-inline-b" %>
     </div>
 </div>
