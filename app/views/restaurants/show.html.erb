@@ -77,8 +77,13 @@
       </tr>
     </table>
     <div class="rest_image">
-      <image src="<%= rest[:image1] %>" class="image" >
-      <image src="<%= rest[:image2] %>" class="image" >
+      <p>【店舗画像】</p>
+      <% if rest[:image1] == "" %>
+       店舗画像はありません
+      <% else %>
+        <image src="<%= rest[:image1] %>" class="image" >
+        <image src="<%= rest[:image2] %>" class="image" >
+      <% end %>
     </div>
 
     <div class="pr">

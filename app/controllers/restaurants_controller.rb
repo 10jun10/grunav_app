@@ -124,8 +124,8 @@ class RestaurantsController < ApplicationController
       render :index
     end
 
-    puts "============テスト============="
+    puts '============テスト============='
     puts @restaurants.first[:name]
-    puts "============テスト終了============="
+    puts '============テスト終了============='
   end
 end
