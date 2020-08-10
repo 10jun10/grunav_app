@@ -73,7 +73,7 @@
         <% if rest[:url] == "" && rest[:url_mobile] == "" %>
           <td>情報なし</td>
         <% else %>
-          <td><%= link_to "PCの方はこちら", "#{rest[:url]}" %><br><%= link_to "スマホの方はこちら", "#{rest[:url_mobile]}" %></td>
+          <td><%= link_to "PCの方はこちら", "#{rest[:url]}", target: :_blank, rel: "noopener noreferrer" %><br><%= link_to "スマホの方はこちら", "#{rest[:url_mobile]}", target: :_blank, rel: "noopener noreferrer" %></td>
         <% end %>
       </tr>
     </table>
