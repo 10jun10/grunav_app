@@ -41,7 +41,9 @@ class RestaurantsController < ApplicationController
         restaurants.push({
                            id: rest['id'],
                            name: rest['name'],
-                           access: rest['access']['walk'],
+                           station: rest['access']['station'],
+                           station_exit: rest['access']['station_exit'],
+                           walk: rest['access']['walk'],
                            image: rest['image_url']['shop_image1']
                          })
       end
@@ -100,6 +102,7 @@ class RestaurantsController < ApplicationController
                             budget: rest['budget'],
                             party: rest['party'],
                             lunch: rest['lunch'],
+                            station: rest['access']['station'],
                             walk: rest['access']['walk'],
                             tel: rest['tel']
                           })
@@ -128,5 +131,6 @@ class RestaurantsController < ApplicationController
     gon.latitude = @restaurants.first[:latitude]
     gon.longitude = @restaurants.first[:longitude]
     gon.walk = @restaurants.first[:walk]
+    gon.station = @restaurants.first[:station]
   end
 end

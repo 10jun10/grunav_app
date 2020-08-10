@@ -2,11 +2,12 @@ function initMap() {
 
   let latitude = Number(gon.latitude)
   let longitude = Number(gon.longitude)
+  let station = gon.station
   let walk = gon.walk
 
   console.log('現在地から',walk,'分')
 
-  let time = '現在地から' + walk + '分'
+  let time = station + 'から' + walk + '分'
 
   console.log(time)
 

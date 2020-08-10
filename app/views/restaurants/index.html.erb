@@ -4,7 +4,7 @@
       <tr>
         <th>店名</th>
         <th>画像</th>
-        <th>現在地からの徒歩でかかる時間</th>
+        <th>最寄り駅からの徒歩でかかる時間</th>
       </tr>
 
       <% @restaurants.each do |res| %>
@@ -19,7 +19,7 @@
               <image src="<%= res[:image] %>">
             <% end %>
           </td>
-          <td><%= res[:access] %>分</td>
+          <td><%= res[:station] %><%= res[:station_exit] %>から<%= res[:walk] %>分</td>
         </tr>
       <% end %>
     </table>
