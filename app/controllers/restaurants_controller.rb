@@ -65,9 +65,6 @@ class RestaurantsController < ApplicationController
     end
     @restaurants = Kaminari.paginate_array(restaurants).page(params[:page]).per(10)
 
-    # puts "============テスト============="
-    # puts @restaurants.first[:name]
-    # puts "============テスト終了============="
   end
 
   def search; end
@@ -123,9 +120,5 @@ class RestaurantsController < ApplicationController
                end
       render :index
     end
-
-    puts '============テスト============='
-    puts @restaurants.first[:name]
-    puts '============テスト終了============='
   end
 end
