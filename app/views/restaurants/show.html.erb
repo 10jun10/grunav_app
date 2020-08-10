@@ -1,92 +1,94 @@
-<% @restaurants.each do |rest| %>
-  
-  <div class="card">
-    <div class="card-header">
-      カテゴリー：<%= rest[:category] %>
+<div class="mt-4">
+  <% @restaurants.each do |rest| %>
+    
+    <div class="card">
+      <div class="card-header">
+        カテゴリー：<%= rest[:category] %>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title mb-1"><%= rest[:name] %></h1>
+        <%= rest[:name_kana] %>
+      </div>
     </div>
-    <div class="card-body">
-      <h1 class="card-title mb-1"><%= rest[:name] %></h1>
-      <%= rest[:name_kana] %>
+
+    <table id="show">
+      <tr>
+        <th>電話番号</th>
+        <% if rest[:tel] == "" %>
+          <td>情報なし</td>
+        <% else %>
+          <td><%= rest[:tel] %></td>
+        <% end %>
+      </tr>
+
+      <tr>
+        <th>営業時間</th>
+        <% if rest[:opentime] == "" %>
+          <td>情報なし</td>
+        <% else %>
+          <td><%= rest[:opentime] %></td>
+        <% end %>
+      </tr>
+
+      <tr>
+        <th>休業日</th>
+        <% if rest[:holiday] == "" %>
+          <td>情報なし</td>
+        <% else %>
+          <td><%= rest[:holiday] %></td>
+        <% end %>
+      </tr>
+
+      <tr>
+        <th>住所</th>
+        <% if rest[:address] == "" %>
+          <td>情報なし</td>
+        <% else %>
+          <td><%= rest[:address] %></td>
+        <% end %>
+      </tr>
+
+      <tr>
+        <th>平均予算<br>ランチタイム平均予算<br>宴会・パーティ平均予算</th>
+        <% if rest[:budget] == "" %>
+          <td>平均予算の情報はありません<br>
+        <% else %>
+          <td>平均予算：<%= rest[:budget] %>円<br>
+        <% end %>
+        <% if rest[:lunch] == "" %>
+          ランチタイム平均予算の情報はありません<br>
+        <% else %>
+          ランチタイム平均予算：<%= rest[:lunch] %>円<br>
+        <% end %>
+        <% if rest[:party] == "" %>
+          宴会・パーティ平均予算の情報はありません</td>
+        <% else %>
+          宴会・パーティ平均予算：<%= rest[:party] %>円</td>
+        <% end %>
+      </tr>
+
+      <tr>
+        <th>詳細</th>
+        <% if rest[:url] == "" && rest[:url_mobile] == "" %>
+          <td>情報なし</td>
+        <% else %>
+          <td><%= link_to "PCの方はこちら", "#{rest[:url]}" %><br><%= link_to "スマホの方はこちら", "#{rest[:url_mobile]}" %></td>
+        <% end %>
+      </tr>
+    </table>
+    <div class="rest_image">
+      <image src="<%= rest[:image1] %>" class="image" >
+      <image src="<%= rest[:image2] %>" class="image" >
     </div>
-  </div>
 
-  <table id="show">
-    <tr>
-      <th>電話番号</th>
-      <% if rest[:tel] == "" %>
-        <td>情報なし</td>
+    <div class="pr">
+      <p>【<%= rest[:name] %>からのお知らせ】</p>
+      <% if rest[:pr_long] == "" && rest[:pr_short] == "" %>
+        お知らせはありません
       <% else %>
-        <td><%= rest[:tel] %></td>
+        <h4 class="mb-4"><%= rest[:pr_short] %></h4>
+        <%= rest[:pr_long] %>
       <% end %>
-    </tr>
-
-    <tr>
-      <th>営業時間</th>
-      <% if rest[:opentime] == "" %>
-        <td>情報なし</td>
-      <% else %>
-        <td><%= rest[:opentime] %></td>
-      <% end %>
-    </tr>
-
-    <tr>
-      <th>休業日</th>
-      <% if rest[:holiday] == "" %>
-        <td>情報なし</td>
-      <% else %>
-        <td><%= rest[:holiday] %></td>
-      <% end %>
-    </tr>
-
-    <tr>
-      <th>住所</th>
-      <% if rest[:address] == "" %>
-        <td>情報なし</td>
-      <% else %>
-        <td><%= rest[:address] %></td>
-      <% end %>
-    </tr>
-
-    <tr>
-      <th>平均予算<br>ランチタイム平均予算<br>宴会・パーティ平均予算</th>
-      <% if rest[:budget] == "" %>
-        <td>平均予算の情報はありません<br>
-      <% else %>
-        <td>平均予算：<%= rest[:budget] %>円<br>
-      <% end %>
-      <% if rest[:lunch] == "" %>
-        ランチタイム平均予算の情報はありません<br>
-      <% else %>
-        ランチタイム平均予算：<%= rest[:lunch] %>円<br>
-      <% end %>
-      <% if rest[:party] == "" %>
-        宴会・パーティ平均予算の情報はありません</td>
-      <% else %>
-        宴会・パーティ平均予算：<%= rest[:party] %>円</td>
-      <% end %>
-    </tr>
-
-    <tr>
-      <th>詳細</th>
-      <% if rest[:url] == "" && rest[:url_mobile] == "" %>
-        <td>情報なし</td>
-      <% else %>
-        <td><%= link_to "PCの方はこちら", "#{rest[:url]}" %><br><%= link_to "スマホの方はこちら", "#{rest[:url_mobile]}" %></td>
-      <% end %>
-    </tr>
-  </table>
-  <div class="rest_image">
-    <image src="<%= rest[:image1] %>" class="image" >
-    <image src="<%= rest[:image2] %>" class="image" >
-  </div>
-
-  <div class="pr">
-    <p>【<%= rest[:name] %>からのお知らせ】</p>
-    <% if rest[:pr_long] == "" && rest[:pr_short] == "" %>
-      お知らせはありません
-    <% else %>
-      <h4 class="mb-4"><%= rest[:pr_short] %></h4>
-      <%= rest[:pr_long] %>
-    <% end %>
-  </div>
-<% end %>
+    </div>
+  <% end %>
+</div>

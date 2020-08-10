@@ -28,10 +28,6 @@ class RestaurantsController < ApplicationController
     }
     query = query_items.to_query
 
-    puts "======================"
-    puts query_items[:longitude]
-    puts "======================"
-
     url = 'https://api.gnavi.co.jp/RestSearchAPI/v3/?' << query
 
     url = URI.encode url
@@ -68,6 +64,10 @@ class RestaurantsController < ApplicationController
       render :search
     end
     @restaurants = Kaminari.paginate_array(restaurants).page(params[:page]).per(10)
+
+    # puts "============テスト============="
+    # puts @restaurants.first[:name]
+    # puts "============テスト終了============="
   end
 
   def search; end
@@ -123,5 +123,9 @@ class RestaurantsController < ApplicationController
                end
       render :index
     end
+
+    puts "============テスト============="
+    puts @restaurants.first[:name]
+    puts "============テスト終了============="
   end
 end
