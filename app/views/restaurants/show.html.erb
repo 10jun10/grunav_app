@@ -80,7 +80,7 @@
     <div class="rest_image">
       <p>【店舗画像】</p>
       <% if rest[:image1] == "" %>
-       店舗画像はありません
+          <%= image_tag 'noimage.png', alt: "noimage", class: "image" %>
       <% else %>
         <image src="<%= rest[:image1] %>" class="image" >
         <image src="<%= rest[:image2] %>" class="image" >

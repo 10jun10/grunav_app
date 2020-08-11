@@ -14,7 +14,8 @@
           </td>
           <td>
             <% if res[:image] == "" %>
-                画像はありません
+                <%# 画像はありません %>
+                <%= image_tag 'noimage.png', alt: "noimage", width: "250", height: "250" %>
             <% else %>
               <image src="<%= res[:image] %>">
             <% end %>
