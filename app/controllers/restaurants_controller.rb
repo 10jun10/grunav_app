@@ -103,6 +103,7 @@ class RestaurantsController < ApplicationController
                             party: rest['party'],
                             lunch: rest['lunch'],
                             station: rest['access']['station'],
+                            station_exit: rest['access']['station_exit'],
                             walk: rest['access']['walk'],
                             tel: rest['tel']
                           })
@@ -131,6 +132,7 @@ class RestaurantsController < ApplicationController
     gon.latitude = @restaurants.first[:latitude]
     gon.longitude = @restaurants.first[:longitude]
     gon.walk = @restaurants.first[:walk]
+    gon.station_exit = @restaurants.first[:station_exit]
     gon.station = @restaurants.first[:station]
   end
 end
