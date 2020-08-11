@@ -135,5 +135,6 @@ class RestaurantsController < ApplicationController
     gon.walk = @restaurants.first[:walk]
     gon.station_exit = @restaurants.first[:station_exit]
     gon.station = @restaurants.first[:station]
+    gon.res_name = @restaurants.first[:name]
   end
 end

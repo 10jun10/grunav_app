@@ -27,15 +27,7 @@ function initMap() {
 
   let latitude = Number(gon.latitude)
   let longitude = Number(gon.longitude)
-  let station = gon.station
-  let walk = gon.walk
-  let station_exit = gon.station_exit
-
-  console.log('現在地から',walk,'分')
-
-  let time = station + station_exit + 'から' + walk + '分'
-
-  console.log(time)
+  let name = gon.res_name
 
   let test ={lat: latitude, lng: longitude};
   let map = new google.maps.Map(document.getElementById('map'), {
@@ -46,7 +38,7 @@ function initMap() {
   transitLayer.setMap(map);
 
   let infowindow = new google.maps.InfoWindow({
-      content: time
+      content: name
   });
 
   let marker = new google.maps.Marker({
