@@ -1,24 +1,19 @@
-# README
+# Gnav_app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+現在地から半径1000mまでにある飲食店を検索できるサービス
 
-Things you may want to cover:
+## URL
 
-* Ruby version
+https://gnav.herokuapp.com/
 
-* System dependencies
+## 開発環境/言語
 
-* Configuration
+* Ruby(2.5.1)
+* Ruby on Rails(5.2.4.3)
 
-* Database creation
+## 機能概要（一覧）
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Geolocation APIを利用して現在地を所得
+* 取得した現在地周辺にある飲食店をぐるなびレストラン検索APIを利用して検索・一覧表示
+* 選択した飲食店の詳細を表示
+* 詳細画面にはGoogle Maps APIを利用して飲食店の位置と現在地を地図上に表示
