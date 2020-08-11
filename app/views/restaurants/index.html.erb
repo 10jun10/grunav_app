@@ -10,7 +10,7 @@
       <% @restaurants.each do |res| %>
         <tr>
           <td>
-            <%= link_to res[:name], res[:id] %>
+            <%= link_to res[:name], res[:id], target: :_blank, rel: "noopener noreferrer" %>
           </td>
           <td>
             <% if res[:image] == "" %>
