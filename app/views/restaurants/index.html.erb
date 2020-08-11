@@ -10,6 +10,7 @@
       <% @restaurants.each do |res| %>
         <tr>
           <td>
+            <small><%= res[:category] %></small><br>
             <%= link_to res[:name], res[:id], target: :_blank, rel: "noopener noreferrer" %>
           </td>
           <td>

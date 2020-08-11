@@ -41,6 +41,7 @@ class RestaurantsController < ApplicationController
         restaurants.push({
                            id: rest['id'],
                            name: rest['name'],
+                           category: rest['category'],
                            station: rest['access']['station'],
                            station_exit: rest['access']['station_exit'],
                            walk: rest['access']['walk'],
