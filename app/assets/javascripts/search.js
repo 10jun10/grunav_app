@@ -5,7 +5,7 @@ if (navigator.geolocation) {
       let lat = position.coords.latitude;
       let lng = position.coords.longitude;
 
-      $(".search").append(
+      $(".latlng").append(
         `<input type="hidden" id="id" name="lat" value="${lat}">
         <input type="hidden" id="id" name="lng" value="${lng}">`
       );
