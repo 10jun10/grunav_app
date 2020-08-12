@@ -22,8 +22,24 @@ function initMap() {
         infowindow.open(map, present);
       });
 
+    },
+    function(error) {
+      let errorMessage = [
+        "原因不明のエラーが発生しました。",
+        "位置情報の取得が許可されませんでした。",
+        "デバイスの位置が判定できませんでした。",
+        "タイムアウトして位置情報を取得できませんでした。"
+       ] ;
+
+      alert( errorMessage[error.code] );
+    },
+
+    {
+      enableHighAccuracy: false,
+      timeout: 20000,
+      maximumAge: 2000
     }
-  )
+  );
 
   let latitude = Number(gon.latitude)
   let longitude = Number(gon.longitude)
