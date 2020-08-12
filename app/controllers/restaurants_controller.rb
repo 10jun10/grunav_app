@@ -16,7 +16,6 @@ class RestaurantsController < ApplicationController
       "buffet": params[:buffet],
       "lunch_buffet": params[:lunch_buffet],
       "bottomless_cup": params[:bottomless_cup],
-      "deliverly": params[:deliverly],
       "until_morning": params[:until_morning],
       "lunch_desert": params[:lunch_desert],
       "midnight": params[:midnight],

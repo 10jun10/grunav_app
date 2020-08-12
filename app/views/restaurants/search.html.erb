@@ -34,6 +34,9 @@
       </div>
 
       <div class="col-md-4">
+      </div>
+
+      <div class="col-md-4">
         <%= f.check_box :midnight, id: "midnight" %>
         <%= f.label :深夜営業あり, for: "midnight" %>
       </div>
@@ -42,12 +45,10 @@
         <%= f.check_box :until_morning, id: "until_morning" %>
         <%= f.label :朝まで営業, for: "until_morning" %>
       </div>
-
-      <div class="col-md-4 offset-md-4">
-        <%= f.check_box :no_smoking, id: "no_smoking" %>
-        <%= f.label :禁煙席あり, for: "no_smoking" %>
-      </div>
     
+      <div class="col-md-4">
+      </div>
+
       <div class="col-md-4">
         <%= f.check_box :card, id: "card" %>
         <%= f.label :カード決済あり, for: "card" %>
@@ -62,13 +63,13 @@
       </div>
 
       <div class="col-md-4">
+        <%= f.check_box :no_smoking, id: "no_smoking" %>
+        <%= f.label :禁煙席あり, for: "no_smoking" %>
+      </div>
+
+      <div class="col-md-4">
         <%= f.check_box :takeout, id: "takeout" %>
         <%= f.label :テイクアウトあり, for: "takeout" %>
-      </div>
-    
-      <div class="col-md-4">
-        <%= f.check_box :deliverly, id: "deliverly" %>
-        <%= f.label :デリバリーあり, for: "deliverly" %>
       </div>
 
       <div class="col-md-4 latlng">
