@@ -4,14 +4,10 @@ class RestaurantsController < ApplicationController
   require 'json'
 
   def index
-    lat = params[:lat]
-    lng = params[:lng]
-    range = params[:range]
-
     query_items = {
       "keyid": ENV['GNAVI_API_KEY'],
-      "latitude": lat,
-      "longitude": lng,
+      "latitude": params[:lat],
+      "longitude": params[:lng],
       "hit_per_page": 100,
       "lunch": params[:lunch],
       "no_smoking": params[:no_smoking],
@@ -24,7 +20,7 @@ class RestaurantsController < ApplicationController
       "until_morning": params[:until_morning],
       "lunch_desert": params[:lunch_desert],
       "midnight": params[:midnight],
-      "range": range
+      "range": params[:range]
     }
     query = query_items.to_query
 
@@ -128,13 +124,8 @@ class RestaurantsController < ApplicationController
       render :index
     end
 
-    puts ''
-
     gon.latitude = @restaurants.first[:latitude]
     gon.longitude = @restaurants.first[:longitude]
-    gon.walk = @restaurants.first[:walk]
-    gon.station_exit = @restaurants.first[:station_exit]
-    gon.station = @restaurants.first[:station]
     gon.res_name = @restaurants.first[:name]
   end
 end
